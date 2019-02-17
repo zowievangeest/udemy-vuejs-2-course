@@ -10,10 +10,13 @@
                 <app-user-detail
                         :myName="name"
                         @nameWasReset="name = $event"
-                        :resetFunction="resetName"></app-user-detail>
+                        :resetFunction="resetName"
+                        :userAge="age"></app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit
+                        :userAge="age"
+                        @ageWasEdited="age = $event"></app-user-edit>
             </div>
         </div>
     </div>
@@ -24,10 +27,11 @@
     import UserEdit from './UserEdit.vue';
 
     export default {
-        data: function() {
-          return {
-           name: 'Zowie'
-          };
+        data: function () {
+            return {
+                name: 'Zowie',
+                age: 20,
+            };
         },
         methods: {
             changeName() {
