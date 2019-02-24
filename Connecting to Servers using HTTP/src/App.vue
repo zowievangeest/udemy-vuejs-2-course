@@ -44,9 +44,14 @@
             },
             fetchData() {
                 this.$http.get('').then(response => {
-                    this.users = response.data;
-                }, error => {
-                    console.log(error);
+                    return response.json;
+                })
+                .then(data => {
+                    const resultArray = [];
+                    for (let key in data) {
+                        resultArray.push(data[key]);
+                    }
+                    this.users = resultArray;
                 })
             }
         }
