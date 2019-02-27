@@ -101,6 +101,9 @@
       email: {
         required,
         email,
+        unique: val => {
+          return val !== 'test@test.com'
+        }
       },
       age: {
         required,
